@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="文市相逢：以底片質感與鏡頭美學，串聯臺中文學館與第五市場。專為 16-28 歲美學記錄與自媒體創作者打造的影展專題。">
+    <meta name="keywords" content="文市相逢, 臺中文學館, 第五市場, 影展專題, 逢甲大學行銷系, 蘇芯怡, 底片相機, 自媒體創作">
+    <meta name="author" content="蘇芯怡">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph 社交分享標籤 -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:title" content="文市相逢｜臺中文學館 × 第五市場影展專案">
+    <meta property="og:description" content="從百年檜木的文學靜謐，到傳統市場的日常煙火，用底片質感記錄臺中舊城。">
+    
+    <title>文市相逢｜臺中文學館 × 第五市場影展專案</title>
+    
+    <!-- 切割式外部 CSS 檔案 -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- 內嵌式全域與美學樣式 -->
+    <style>
+        :root {
+            --primary-color: #7A5C43;   /* 質感復古棕木色 */
+            --accent-color: #B56543;    /* 溫潤底片橘紅調 */
+            --bg-light: #F7F5F0;        /* 柔和米白紙質底色 */
+            --text-dark: #2B2621;       /* 深咖啡黑內文色 */
+            --text-muted: #6E655D;      /* 灰色輔助文字 */
+            --border-color: #E2DBD2;    /* 框線色 */
+            --font-main: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-main); background-color: var(--bg-light); color: var(--text-dark); line-height: 1.7; }
+        a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
+        img { max-width: 100%; height: auto; display: block; object-fit: cover; background-color: #EFECE6; }
+
+        .skip-link { position: absolute; top: -40px; left: 0; background: var(--primary-color); color: white; padding: 8px; z-index: 1000; }
+        .skip-link:focus { top: 0; }
+
+        /* 頂部導覽列 Header */
+        .site-header { position: sticky; top: 0; background-color: rgba(247, 245, 240, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border-color); z-index: 900; }
+        .header-inner { max-width: 1280px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .brand { display: flex; align-items: center; gap: 0.8rem; }
+        .brand-mark { width: 36px; height: 36px; background-color: var(--primary-color); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; }
+        .brand strong { display: block; font-size: 1.1rem; letter-spacing: 0.05em; }
+        .brand small { display: block; font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.1em; }
+        .main-nav { display: flex; gap: 2rem; font-size: 0.95rem; font-weight: 500; }
+        .main-nav a:hover { color: var(--accent-color); }
+        .menu-toggle { display: none; background: none; border: 1px solid var(--border-color); padding: 0.4rem 0.8rem; border-radius: 4px; cursor: pointer; font-weight: bold; }
+
+        /* 側邊導覽章節 Index */
+        .side-index { position: fixed; right: 2rem; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.8rem; font-weight: bold; z-index: 800; background: rgba(255, 255, 255, 0.85); padding: 1rem 0.6rem; border-radius: 30px; border: 1px solid var(--border-color); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .side-index span { writing-mode: vertical-rl; text-align: center; color: var(--text-muted); margin-bottom: 0.5rem; }
+        .side-index a { text-align: center; padding: 4px; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; }
+        .side-index a:hover { background-color: var(--primary-color); color: white; }
+
+        /* 區塊與 Grid 佈局 System */
+        .section-wrap { max-width: 1200px; margin: 0 auto; padding: 5rem 2rem; }
+        .section-kicker { font-size: 0.85rem; font-weight: bold; letter-spacing: 0.15em; color: var(--accent-color); margin-bottom: 0.5rem; display: block; }
+        .overline { font-size: 0.8rem; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase; }
+
+        /* Hero 區塊（右側放置雙核心指定圖片並排） */
+        .hero { max-width: 1280px; margin: 0 auto; padding: 4rem 2rem; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 3rem; align-items: center; min-height: 85vh; }
+        .hero-copy .eyebrow { font-size: 0.85rem; letter-spacing: 0.2em; color: var(--accent-color); font-weight: bold; margin-bottom: 1rem; }
+        .hero-copy h1 { font-size: 3.5rem; letter-spacing: -0.02em; margin-bottom: 1rem; color: var(--primary-color); }
+        .hero-slogan { font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; }
+        .hero-description { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .hero-visual-wrap { position: relative; width: 100%; }
+        
+        /* 首頁雙圖並排卡片 */
+        .hero-dual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; background: white; padding: 0.8rem; border-radius: 14px; box-shadow: 0 12px 32px rgba(0,0,0,0.08); border: 1px solid var(--border-color); }
+        .hero-photo-subcard { overflow: hidden; border-radius: 8px; }
+        .hero-photo-subcard img { width: 100%; height: 380px; border-radius: 8px; transition: transform 0.5s ease; }
+        .hero-photo-subcard:hover img { transform: scale(1.05); }
+        .hero-photo-subcard figcaption { margin-top: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--primary-color); text-align: center; }
+
+        .hero-stamp { position: absolute; top: -15px; right: -15px; background-color: var(--primary-color); color: white; width: 85px; height: 85px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 0.75rem; font-weight: bold; line-height: 1.2; box-shadow: 0 6px 16px rgba(0,0,0,0.15); z-index: 10; }
+        .hero-bottom { grid-column: 1 / -1; display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 1.5rem; margin-top: 2rem; }
+
+        .intro-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; margin-bottom: 3rem; }
+        .intro-grid h2 { font-size: 2.2rem; line-height: 1.3; }
+        .intro-grid h2 em { font-style: normal; color: var(--accent-color); }
+        
+        .idea-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 2.5rem 0; }
+        .idea-stats strong { display: block; font-size: 2.8rem; color: var(--primary-color); font-weight: 700; }
+        .idea-stats span { font-size: 0.9rem; color: var(--text-muted); }
+
+        .feature-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+        .feature-item-card { background: white; padding: 1.8rem; border-radius: 10px; border: 1px solid var(--border-color); }
+        .feature-item-card .tag { font-size: 0.75rem; font-weight: bold; color: var(--accent-color); letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem; }
+        .feature-item-card h4 { font-size: 1.2rem; margin-bottom: 0.6rem; color: var(--primary-color); }
+        .feature-item-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+        .content-two-col { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; margin-top: 3rem; align-items: start; }
+        
+        /* 全站圖片懸停微放大特效 */
+        .zoom-hover-img {
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .zoom-hover-img img {
+            transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .zoom-hover-img:hover img {
+            transform: scale(1.06);
+        }
+
+        /* 文學館展示畫廊 */
+        .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+        .photo-grid figure img { width: 100%; height: 260px; border-radius: 8px; margin-bottom: 0.5rem; }
+        .photo-grid figcaption { font-size: 0.85rem; color: var(--text-muted); text-align: center; }
+
+        .market-lead-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; margin-top: 2rem; }
+        .market-lead-grid img { border-radius: 10px; height: 380px; }
+        
+        /* 拍立得風美食區 */
+        .market-food-section { margin-top: 3.5rem; border-top: 1px dashed var(--border-color); padding-top: 2.5rem; }
+        .food-gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+        
+        .polaroid-card { 
+            background: white; 
+            padding: 1.2rem 1.2rem 1.8rem; 
+            border-radius: 12px; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06); 
+            border: 2px solid var(--border-color); 
+            transform: rotate(-1.5deg); 
+            transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1); 
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .polaroid-card:nth-child(even) { transform: rotate(1.5deg); }
+        .polaroid-card:nth-child(3n) { transform: rotate(-0.8deg); }
+        .polaroid-card:hover { 
+            transform: scale(1.04) rotate(0deg) translateY(-8px); 
+            box-shadow: 0 16px 32px rgba(122, 92, 67, 0.15); 
+            border-color: var(--accent-color);
+        }
+
+        .polaroid-card .img-container {
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .polaroid-card img { 
+            width: 100%; 
+            height: 240px; 
+            border-radius: 8px; 
+            transition: transform 0.5s ease;
+        }
+        .polaroid-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .polaroid-caption h4 { font-size: 1.15rem; color: var(--primary-color); margin-bottom: 0.3rem; }
+        .polaroid-caption p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
+
+        /* 超顯眼亮眼的美食地圖按鈕 */
+        .map-cute-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            background: linear-gradient(135deg, #C85A32 0%, #B56543 100%);
+            color: #FFFFFF !important;
+            padding: 1.1rem 2.2rem;
+            border-radius: 50px;
+            border: 3px solid #FFF;
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: 0.03em;
+            box-shadow: 0 8px 24px rgba(200, 90, 50, 0.35);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: pulseGlow 2.5s infinite;
+        }
+        .map-cute-btn:hover {
+            transform: scale(1.05) translateY(-3px);
+            background: linear-gradient(135deg, #D9653B 0%, #C85A32 100%);
+            box-shadow: 0 14px 32px rgba(200, 90, 50, 0.45);
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(200, 90, 50, 0.5); }
+            70% { box-shadow: 0 0 0 16px rgba(200, 90, 50, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(200, 90, 50, 0); }
+        }
+
+        .market-info-strip { display: grid; grid-template-columns: repeat(3, 1fr); background: white; border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem 2rem; margin-top: 3rem; gap: 1.5rem; }
+        .market-info-strip span { display: block; font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.1em; margin-bottom: 0.3rem; }
+        .market-info-strip strong { font-size: 1rem; }
+
+        /* 可愛手繪風格地圖 */
+        .handdrawn-map-wrap { 
+            background: #FFFDF7; 
+            border: 3px dashed #D2C2B3; 
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px; 
+            padding: 3.5rem 2rem; 
+            margin: 2.5rem 0; 
+            position: relative; 
+            box-shadow: 0 10px 24px rgba(122, 92, 67, 0.05);
+        }
+
+        .sketch-route { display: flex; justify-content: space-between; align-items: center; position: relative; max-width: 900px; margin: 0 auto; }
+        .sketch-node { text-align: center; width: 240px; z-index: 2; }
+        .sketch-box { 
+            background: white; 
+            border: 3px solid var(--primary-color); 
+            border-radius: 20px 255px 20px 225px/255px 20px 225px 20px; 
+            padding: 1.3rem; 
+            box-shadow: 4px 5px 0px #CBB7A5; 
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+        .sketch-box:hover { transform: translateY(-5px) scale(1.03); box-shadow: 6px 8px 0px var(--accent-color); }
+        .sketch-box h4 { font-size: 1.2rem; color: var(--primary-color); margin-bottom: 0.3rem; }
+        .sketch-box p { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
+        
+        .sketch-line-path { flex: 1; margin: 0 1rem; position: relative; text-align: center; }
+        .dashed-line { 
+            border-top: 4px dashed #D28C71; 
+            width: 100%; 
+            position: absolute; 
+            top: 50%; 
+            transform: translateY(-50%); 
+            z-index: 1; 
+        }
+        
+        .walk-time-badge { 
+            display: inline-block; 
+            background: #B56543; 
+            color: white; 
+            font-weight: bold; 
+            font-size: 0.95rem; 
+            padding: 0.5rem 1.4rem; 
+            border-radius: 30px 10px 30px 10px; 
+            border: 3px solid white; 
+            box-shadow: 0 6px 14px rgba(181, 101, 67, 0.25); 
+            position: relative; 
+            z-index: 2; 
+            transform: rotate(-3deg); 
+            animation: cuteFloat 3s ease-in-out infinite alternate;
+        }
+        .cute-footprints {
+            display: block;
+            font-size: 0.8rem;
+            letter-spacing: 0.6em;
+            color: #C2A792;
+            margin-bottom: 0.3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes cuteFloat {
+            0% { transform: rotate(-3deg) translateY(0px); }
+            100% { transform: rotate(-1deg) translateY(-6px); }
+        }
+
+        .map-card { background: white; border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; margin-bottom: 3rem; }
+        .map-heading { padding: 2rem; display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid var(--border-color); }
+        .map-frame { width: 100%; height: 420px; border: none; }
+
+        .film-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; }
+        .video-panel { background: white; padding: 2rem; border-radius: 12px; border: 1px solid var(--border-color); }
+        .video-frame { position: relative; padding-bottom: 56.25%; height: 0; margin: 1rem 0; border-radius: 8px; overflow: hidden; }
+        .video-frame iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+        .visit-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }
+        .visit-list { display: flex; flex-direction: column; gap: 1.5rem; }
+        .visit-list > div { background: white; padding: 1.8rem; border-radius: 10px; border: 1px solid var(--border-color); position: relative; }
+        .visit-list span { position: absolute; top: 1.2rem; right: 1.5rem; font-size: 1.8rem; font-weight: bold; color: #e5dfd5; }
+
+        .section-heading { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; }
+        .section-heading h2 { font-size: 2.2rem; color: var(--primary-color); }
+        .section-lead { font-size: 1.1rem; color: var(--text-muted); text-align: right; max-width: 400px; }
+
+        .fact-card { background-color: white; border: 1px solid var(--border-color); border-radius: 10px; padding: 2rem; box-shadow: 0 4px 16px rgba(0,0,0,0.03); }
+        .card-label { font-size: 0.75rem; font-weight: bold; letter-spacing: 0.15em; color: var(--accent-color); display: block; margin-bottom: 1rem; }
+        .fact-card p { margin-bottom: 0.8rem; font-size: 0.95rem; }
+        .fact-card b { display: inline-block; width: 70px; color: var(--text-muted); }
+        .small-note { font-size: 0.8rem; color: var(--text-muted); margin: 1rem 0; }
+        .fact-card a, .map-heading a, .visit-list a, .text-link { color: var(--accent-color); font-weight: 600; font-size: 0.9rem; }
+        .fact-card a:hover, .map-heading a:hover, .visit-list a:hover { text-decoration: underline; }
+
+        .place-feature { position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+        .place-feature img { width: 100%; height: 460px; }
+        .feature-caption { position: absolute; bottom: 2rem; left: 2rem; background: rgba(43, 38, 33, 0.85); backdrop-filter: blur(6px); color: white; padding: 1.2rem 2rem; border-radius: 8px; display: flex; gap: 1.2rem; align-items: center; max-width: 450px; }
+        .feature-caption span { font-size: 1.8rem; font-weight: bold; color: var(--accent-color); }
+        .slogan-note { font-style: italic; color: var(--primary-color); font-weight: 600; margin-top: 1.5rem; display: block; }
+
+        .site-footer { background-color: var(--text-dark); color: white; padding: 4rem 2rem 2rem; }
+        .footer-top { max-width: 1200px; margin: 0 auto 3rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 2rem; }
+        .footer-logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 0.1em; }
+        .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: #A0968D; }
+
+        @media (max-width: 1024px) {
+            .side-index { display: none; }
+            .hero { grid-template-columns: 1fr; min-height: auto; }
+            .hero-visual-wrap { margin-top: 1.5rem; }
+            .hero-dual-grid { grid-template-columns: 1fr; }
+            .intro-grid, .content-two-col, .market-lead-grid, .film-grid, .visit-grid, .feature-cards-grid, .food-gallery-grid, .photo-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .sketch-route { flex-direction: column; gap: 1.5rem; }
+            .sketch-node { width: 100%; }
+            .dashed-line { display: none; }
+            .section-heading { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .section-lead { text-align: left; }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background-color: var(--bg-light); flex-direction: column; padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-color); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+            .main-nav.is-open { display: flex; }
+            .menu-toggle { display: block; }
+            .idea-stats, .market-info-strip { grid-template-columns: 1fr; }
+            .hero-copy h1 { font-size: 2.8rem; }
+            .footer-top, .footer-bottom { flex-direction: column; gap: 1.5rem; text-align: center; }
+            .map-cute-btn { width: 100%; font-size: 1rem; padding: 0.9rem 1.2rem; }
+        }
+    </style>
+</head>
+<body id="top">
+    <a class="skip-link" href="#main">跳至主要內容</a>
+
+    <!-- 頂部導覽列 Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="#top" aria-label="文市相逢首頁">
+                <span class="brand-mark">逢</span>
+                <span><strong>文市相逢</strong><small>TAICHUNG FILM & CITYWALK</small></span>
+            </a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">選單</button>
+            <nav class="main-nav" id="main-nav" aria-label="主要導覽">
+                <a href="#about">專案理念</a>
+                <a href="#literature">文學館基地</a>
+                <a href="#market">第五市場基地</a>
+                <a href="#route">城市漫遊路線</a>
+                <a href="#film">影像專區</a>
+                <a href="#visit">參展資訊</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 側邊欄導覽 Index -->
+    <aside class="side-index" aria-label="頁面章節導覽">
+        <span>INDEX</span>
+        <a href="#about">01</a>
+        <a href="#literature">02</a>
+        <a href="#market">03</a>
+        <a href="#route">04</a>
+        <a href="#film">05</a>
+        <a href="#visit">06</a>
+    </aside>
+
+    <main id="main">
+        <!-- Hero Banner 區塊（右側放指定的兩張照片） -->
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">AESTHETIC FILM EXHIBITION 2026</p>
+                <h1>文市相逢</h1>
+                <p class="hero-slogan">捕捉老屋光影，凝視常民日常。</p>
+                <p class="hero-description">以底片相機的溫潤視角，穿梭於臺中文學館的檜木香氣與第五市場的市井煙火，展開一場屬於新世代創作者的城市影像對話。</p>
+                <a class="text-link" href="#about">探索影展專案 <span>↘</span></a>
+            </div>
+            
+            <!-- 右側雙圖並排卡片區 -->
+            <div class="hero-visual-wrap">
+                <div class="hero-dual-grid">
+                    <figure class="hero-photo-subcard">
+                        <img src="C:\Users\Yi Xin Su\Pictures\台中文學館.jpg" 
+                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'380\' viewBox=\'0 0 400 380\'><rect width=\'100%\' height=\'100%\' fill=\'%237A5C43\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'18\' text-anchor=\'middle\'>臺中文學館基地</text></svg>';" 
+                             alt="臺中文學館入口與綠植牆">
+                        <figcaption>⛩️ 臺中文學館</figcaption>
+                    </figure>
+                    <figure class="hero-photo-subcard">
+                        <img src="C:\Users\Yi Xin Su\Pictures\第五市場.png" 
+                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'380\' viewBox=\'0 0 400 380\'><rect width=\'100%\' height=\'100%\' fill=\'%23B56543\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'18\' text-anchor=\'middle\'>第五市場基地</text></svg>';" 
+                             alt="第五市場意象牆與人物寫真">
+                        <figcaption>🍜 第五市場</figcaption>
+                    </figure>
+                </div>
+                <span class="hero-stamp">FCU<br>MARKETING</span>
+            </div>
+
+            <div class="hero-bottom">
+                <span>作者：蘇芯怡（逢甲行銷）</span>
+                <span>SCROLL TO EXPLORE ↓</span>
+            </div>
+        </section>
+
+        <!-- 01 專案理念 (About) -->
+        <section class="intro-section section-wrap" id="about">
+            <div class="section-kicker">01 / PROJECT CONCEPT</div>
+            <div class="intro-grid">
+                <div>
+                    <p class="overline">WHY THIS PROJECT?</p>
+                    <h2>當文學遇見市集，<br><em>碰撞出怎樣的影像火花？</em></h2>
+                </div>
+                <div class="intro-text">
+                    <p>本專題以「臺中文學館」與「第五市場」作為雙核心基地。我們跳脫傳統商業商場，選擇具有歷史厚度與生活溫度的舊城區，作為當代影像對話的場域。</p>
+                    <p>專案特別鎖定 16 至 28 歲熱愛美學記錄與自媒體創作的族群，透過底片相機般的質感調性，引導觀者重新發現城市角落被忽略的詩意與美感。</p>
+                    <p class="slogan-note">「用鏡頭記錄日常，用影像定格時光。」</p>
+                </div>
+            </div>
+            <div class="idea-stats">
+                <div><strong>16–28</strong><span>主要目標客群年齡 (TA)</span></div>
+                <div><strong>2</strong><span>雙核心展覽基地</span></div>
+            </div>
+        </section>
+
+        <!-- 02 臺中文學館基地 (Literature) -->
+        <section class="place-section literature-section" id="literature">
+            <div class="section-wrap">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-kicker">02 / BASE 01</span>
+                        <p class="overline">LITERATURE & ARCHITECTURE</p>
+                        <h2>臺中文學館基地</h2>
+                    </div>
+                    <p class="section-lead">在百年榕樹與日式老屋間，<br>尋找適合創作的純粹光影。</p>
+                </div>
+                
+                <div class="place-feature zoom-hover-img">
+                    <img src="C:\Users\Yi Xin Su\Pictures\文學館老屋.jpg" 
+                         onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1200\' height=\'460\' viewBox=\'0 0 1200 460\'><rect width=\'100%\' height=\'100%\' fill=\'%237A5C43\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'28\' text-anchor=\'middle\'>臺中文學館日式建築全景</text></svg>';" 
+                         alt="臺中文學館日式建築全景">
+                    <div class="feature-caption">
+                        <span>01</span>
+                        <p>保留歷史痕跡的日式宿舍群，<br>為影像創作提供絕佳的質感背景。</p>
+                    </div>
+                </div>
+
+                <!-- 文學館環境特色 -->
+                <div class="feature-cards-grid">
+                    <div class="feature-item-card">
+                        <span class="tag">01 / ARCHITECTURE</span>
+                        <h4>百年日式老屋</h4>
+                        <p>前身為日治時期警察宿舍，保留原汁原味的檜木構造與雨淋板，展現典雅復古的日式建築美學。</p>
+                    </div>
+                    <div class="feature-item-card">
+                        <span class="tag">02 / NATURE</span>
+                        <h4>老樹光影公園</h4>
+                        <p>園區中央聳立著數十載的大榕樹，巨大的氣根與茂密樹冠交織出迷人的日光影射，是戶外拍攝質感大片的最佳取景點。</p>
+                    </div>
+                    <div class="feature-item-card">
+                        <span class="tag">03 / EXPERIENCE</span>
+                        <h4>室內互動式展覽</h4>
+                        <p>館內規劃詩意多媒體與文字互動體驗，將台中在地文學發展轉化為可觸摸、可感受的沉浸式空間。</p>
+                    </div>
+                </div>
+
+                <div class="content-two-col">
+                    <div>
+                        <h3>百年宿舍群的當代轉生</h3>
+                        <p>園區內保留了經典的日式木構造與庭園景致，是進行靜態美學拍攝、Vlog 取景與文藝氛圍營造的首選基地。</p>
+                        <p>我們在此設立詩意短片放映與攝影展區，讓創作者在靜謐氛圍中感受文字與影像的交融。</p>
+                    </div>
+                    <aside class="fact-card">
+                        <span class="card-label">EXHIBITION INFO</span>
+                        <p><b>基地位置</b>臺中市西區樂群街 38 號</p>
+                        <p><b>開放時間</b>週二至週日 10:00–17:00</p>
+                        <p><b>展區特色</b>日式木造美學、老樹光影長廊</p>
+                        <p class="small-note">戶外文學公園全年開放，室內展館配合館方公告。</p>
+                        <a href="https://www.tlm.taichung.gov.tw/" target="_blank" rel="noopener noreferrer">臺中文學館官網 ↗</a>
+                    </aside>
+                </div>
+
+                <!-- 文學館專屬畫廊 -->
+                <div class="photo-grid literature-gallery">
+                    <figure class="zoom-hover-img">
+                        <img src="C:\Users\Yi Xin Su\Pictures\開卷有益椅.jpg" 
+                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'280\' viewBox=\'0 0 600 280\'><rect width=\'100%\' height=\'100%\' fill=\'%23B56543\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'20\' text-anchor=\'middle\'>臺中文學館開卷有益座椅區</text></svg>';" 
+                             alt="臺中文學館開卷有益座椅區">
+                        <figcaption>綠意沉浸：文學館園區「開卷有益」閱讀角落</figcaption>
+                    </figure>
+                    <figure class="zoom-hover-img">
+                        <img src="C:\Users\Yi Xin Su\Pictures\文學館花草.png" 
+                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'280\' viewBox=\'0 0 600 280\'><rect width=\'100%\' height=\'100%\' fill=\'%236E655D\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'20\' text-anchor=\'middle\'>臺中文學牆影像</text></svg>';" 
+                             alt="臺中文學牆">
+                        <figcaption>文字筆觸：「你看見了文學」舊城牆面質感</figcaption>
+                    </figure>
+                    <figure class="zoom-hover-img">
+                        <img src="C:\Users\Yi Xin Su\Pictures\文學館互動式體驗.png" 
+                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'280\' viewBox=\'0 0 600 280\'><rect width=\'100%\' height=\'100%\' fill=\'%237A5C43\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'20\' text-anchor=\'middle\'>展間互動體驗展示</text></svg>';" 
+                             alt="展間互動體驗">
+                        <figcaption>室內沉浸：文學館日式展間互動體驗區</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03 第五市場基地 (Market) -->
+        <section class="place-section market-section" id="market">
+            <div class="section-wrap">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-kicker">03 / BASE 02</span>
+                        <p class="overline">MARKET & VIBE</p>
+                        <h2>第五市場基地</h2>
+                    </div>
+                    <p class="section-lead">從叫賣聲到熱騰騰的在地小吃，<br>捕捉最具人情味的動態街頭美學。</p>
+                </div>
+                <div class="market-lead-grid">
+                    <div class="market-lead-text">
+                        <h3>常民生活力的影像實驗場</h3>
+                        <p>第五市場擁有豐富的庶民生命力與在地美食。對於新世代創作者而言，這裡充滿了最真實的動態鏡頭與充滿溫度的人際互動。</p>
+                        <p>我們鼓勵創作者將鏡頭對準攤商熟練的手藝、市場熱鬧的叫賣聲與琳瑯滿目的在地攤位，展現台中舊城區不可替代的生活美學。</p>
+                        <a class="text-link" href="https://www.economic.taichung.gov.tw/16103/16153/16313/16343/16355/47928" target="_blank" rel="noopener noreferrer">第五市場市府介紹 ↗</a>
+                    </div>
+                    <div class="zoom-hover-img" style="border-radius: 10px;">
+                        <img src="C:\Users\Yi Xin Su\Pictures\水果攤.png" 
+                             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'380\' viewBox=\'0 0 800 380\'><rect width=\'100%\' height=\'100%\' fill=\'%23B56543\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'24\' text-anchor=\'middle\'>第五市場水果攤採買紀錄</text></svg>';" 
+                             alt="第五市場熱鬧的蔬果攤" style="border-radius: 10px; height: 380px;">
+                    </div>
+                </div>
+
+                <!-- 拍立得風格美食區 -->
+                <div class="market-food-section">
+                    <div class="section-heading" style="margin-bottom: 2rem; border-bottom: none; padding-bottom: 0; align-items: center;">
+                        <div>
+                            <span class="section-kicker">LOCAL FLAVORS</span>
+                            <h3>第五市場・在地推薦美食</h3>
+                        </div>
+                        <a class="map-cute-btn" href="https://www.google.com/maps/search/%E7%AC%AC%E4%BA%94%E5%B8%82%E5%A0%B4+%E7%BE%8E%E9%A3%9F/@24.1378,120.6742,17z" target="_blank" rel="noopener noreferrer">
+                            🗺️ 帶我吃遍在地好滋味！點擊解鎖美食地圖 ➔
+                        </a>
+                    </div>
+                    
+                    <div class="food-gallery-grid">
+                        <div class="polaroid-card">
+                            <div class="img-container">
+                                <img src="C:\Users\Yi Xin Su\Pictures\餛飩.png" 
+                                     onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'280\' viewBox=\'0 0 600 280\'><rect width=\'100%\' height=\'100%\' fill=\'%237A5C43\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'20\' text-anchor=\'middle\'>福記溫州大餛飩攤位</text></svg>';" 
+                                     alt="福記溫州大餛飩">
+                            </div>
+                            <div class="polaroid-caption">
+                                <h4>福記溫州大餛飩 🥟</h4>
+                                <p>傳統老字號，皮薄餡滿，展現現面包餛飩的人文手感與鮮美湯頭。</p>
+                            </div>
+                        </div>
+                        <div class="polaroid-card">
+                            <div class="img-container">
+                                <img src="C:\Users\Yi Xin Su\Pictures\香菇肉羹.png" 
+                                     onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'260\' viewBox=\'0 0 600 260\'><rect width=\'100%\' height=\'100%\' fill=\'%23B56543\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'20\' text-anchor=\'middle\'>紅樹腳香菇肉羹</text></svg>';" 
+                                     alt="紅樹腳香菇肉羹">
+                            </div>
+                            <div class="polaroid-caption">
+                                <h4>紅樹腳香菇肉羹 🍲</h4>
+                                <p>第五市場數十年傳承的名店，煙火氣繚繞的傳統大鍋，濃郁香菇肉羹湯頭是饕客走過必嚐的美食。</p>
+                            </div>
+                        </div>
+                        <div class="polaroid-card">
+                            <div class="img-container">
+                                <img src="C:\Users\Yi Xin Su\Pictures\刈包.jpg" 
+                                     onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'260\' viewBox=\'0 0 600 260\'><rect width=\'100%\' height=\'100%\' fill=\'%237A5C43\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'20\' text-anchor=\'middle\'>第五市場烤肉刈包攤位</text></svg>';" 
+                                     alt="第五市場烤肉刈包">
+                            </div>
+                            <div class="polaroid-caption">
+                                <h4>古早味烤肉刈包 🥙</h4>
+                                <p>市場邊陣陣炭烤肉香，熟練翻烤的肉串與鹹甜入味的烤肉刈包，傳統市井的道地滋味。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="market-info-strip">
+                    <div><span>ADDRESS</span><strong>臺中市西區大明街 9 號</strong></div>
+                    <div><span>MARKET HOURS</span><strong>每日約 07:00–13:00</strong></div>
+                    <div><span>WEEKLY CLOSURE</span><strong>每週一休市</strong></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 城市漫遊路線 -->
+        <section class="citywalk-section" id="route">
+            <div class="section-wrap">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-kicker">04 / CITYWALK ROUTE</span>
+                        <p class="overline">EXPLORE THE CITY</p>
+                        <h2>串聯兩大基地，<br>展開一場城市漫遊。</h2>
+                    </div>
+                    <p class="section-lead">從文學館的靜謐漫步至第五市場的熱鬧，<br>一條專為視覺記錄打造的完美取景路線。</p>
+                </div>
+
+                <!-- 可愛塗鴉風格 3 分鐘步行距離視覺地圖 -->
+                <div class="handdrawn-map-wrap">
+                    <div class="sketch-route">
+                        <div class="sketch-node">
+                            <div class="sketch-box">
+                                <h4>⛩️ 臺中文學館</h4>
+                                <p>樂群街 38 號（靜謐木造與綠蔭）</p>
+                            </div>
+                        </div>
+                        <div class="sketch-line-path">
+                            <span class="cute-footprints">🐾 🐾 🐾</span>
+                            <div class="dashed-line"></div>
+                            <span class="walk-time-badge">🚶‍♀️ 步行只要 3 分鐘！(約 240m)</span>
+                        </div>
+                        <div class="sketch-node">
+                            <div class="sketch-box">
+                                <h4>🍜 第五市場</h4>
+                                <p>大明街 9 號（市井煙火與古早味美食）</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-card">
+                    <div class="map-heading">
+                        <div>
+                            <span class="card-label">WALKING MAP</span>
+                            <h3>基地導覽地圖</h3>
+                            <p>結合 Google Maps 步行導引，輕鬆規劃您的影展實地拍攝與參訪路線。</p>
+                        </div>
+                        <a href="https://www.google.com/maps/dir/?api=1&origin=%E8%87%BA%E4%B8%AD%E6%96%87%E5%AD%B8%E9%A4%A8%2C%E8%87%BA%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%A8%82%E7%BE%A4%E8%A1%9738%E8%99%9F&destination=%E7%AC%AC%E4%BA%94%E5%B8%82%E5%A0%B4%2C%E8%87%BA%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E5%A4%A7%E6%98%8E%E8%A1%979%E8%99%9F&travelmode=walking" target="_blank" rel="noopener noreferrer">在 Google 地圖開啟步行路線 ↗</a>
+                    </div>
+                    <iframe class="map-frame" title="臺中文學館至第五市場 Google 地圖步行路線" src="https://www.google.com/maps?output=embed&saddr=%E8%87%BA%E4%B8%AD%E6%96%87%E5%AD%B8%E9%A4%A8%2C%E8%87%BA%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E6%A8%82%E7%BE%A4%E8%A1%9738%E8%99%9F&daddr=%E7%AC%AC%E4%BA%94%E5%B8%82%E5%A0%B4%2C%E8%87%BA%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E5%A4%A7%E6%98%8E%E8%A1%979%E8%99%9F&dirflg=w" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 影像紀錄專區 (Film & Video) -->
+        <section class="film-section" id="film">
+            <div class="section-wrap">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-kicker">05 / FILM & REELS</span>
+                        <p class="overline">VISUAL STORYTELLING</p>
+                        <h2>用鏡頭，訴說舊城的故事。</h2>
+                    </div>
+                    <p class="section-lead">結合專題短片與 Reels 影像創作，展現臺中舊城一靜一動的雙重魅力。</p>
+                </div>
+                <div class="film-grid">
+                    <div class="film-copy">
+                        <span class="card-label">CREATIVE VISION</span>
+                        <h3>一側是歷史的靜謐，<br>一側是生活的熱鬧。</h3>
+                        <p>本專題透過影像串聯文學館與第五市場，展現對於城市空間的獨特詮釋與美學追求。</p>
+                        <p>無論是對應 IG Reels 的短影片素材，或是深度紀實短片，皆以質感風與底片色調貫穿全場。</p>
+                        <p class="slogan-note">作者：蘇芯怡（逢甲大學行銷學系）</p>
+                    </div>
+                    <div class="video-panel">
+                        <div class="own-video-note">
+                            <b>第五市場基地・專題創作短片 (Google Drive)</b>
+                            <div class="video-frame">
+                                <iframe src="https://drive.google.com/file/d/12MOG41IWLjPLBMLDUafEEPdMDW868zcQ/preview" title="第五市場專題短片" loading="lazy" allow="autoplay" allowfullscreen></iframe>
+                            </div>
+                            <span>透過動態鏡頭深入第五市場與舊城區，捕捉最具人情味的在地日常。</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06 參展與資訊 -->
+        <section class="visit-section section-wrap" id="visit">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">06 / VISIT & INFO</span>
+                    <p class="overline">INFORMATION</p>
+                    <h2>參展與資訊</h2>
+                </div>
+                <p class="section-lead">歡迎蒞臨現場參觀，體驗舊城與自媒體美學的結合。</p>
+            </div>
+            <div class="visit-grid">
+                <div class="visit-list">
+                    <div>
+                        <span>01</span>
+                        <h3>交通方式</h3>
+                        <p>搭乘公車至「臺中文學館」或「第五市場（臺中刑務所演武場）」站下車，步行即可抵達兩大展區。</p>
+                    </div>
+                    <div>
+                        <span>02</span>
+                        <h3>參觀建議</h3>
+                        <p>建議上午時段先參觀第五市場體驗早市熱鬧氛圍，午後轉往臺中文學館感受日式建築與光影。</p>
+                    </div>
+                </div>
+                <aside class="fact-card">
+                    <span class="card-label">PROJECT PROFILE</span>
+                    <p><b>專案名稱</b>文市相逢：臺中文學館 × 第五市場影展專案</p>
+                    <p><b>指導單位</b>逢甲大學行銷學系</p>
+                    <p><b>作者</b>蘇芯怡</p>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁尾 Footer -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-logo">文市相逢 TAICHUNG FILM & CITYWALK</div>
+            <div class="footer-links">
+                <a href="#about">專案理念</a> | 
+                <a href="#literature">文學館基地</a> | 
+                <a href="#market">第五市場基地</a> | 
+                <a href="#film">影像專區</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 文市相逢 Project. All Rights Reserved. Designed by 蘇芯怡 (FCU Marketing).</p>
+            <p>Taichung Literature Pavilion & Fifth Market Exhibition</p>
+        </div>
+    </footer>
+</body>
+</html>
